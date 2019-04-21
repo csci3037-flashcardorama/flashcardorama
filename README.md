@@ -1,3 +1,4 @@
 # flashcardorama
 A flashcard app
-Adding a test.
+
+## This could could be our user and technical manual.
