@@ -1,0 +1,42 @@
+﻿@model Project4.Card
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Card</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CardFront)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CardFront)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CardBack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CardBack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deck.DeckName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deck.DeckName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
