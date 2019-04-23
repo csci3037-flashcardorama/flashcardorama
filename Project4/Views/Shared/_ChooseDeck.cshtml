@@ -1,0 +1,14 @@
+﻿@model Project4.Deck
+
+<tr>
+	<td>
+		@Html.ActionLink(@Model.DeckName, "Details", new { id = Model.Id })
+	</td>
+	<td>
+		@Model.AspNetUser.UserName
+	</td>
+	<td>
+		@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+		@Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+	</td>
+</tr>

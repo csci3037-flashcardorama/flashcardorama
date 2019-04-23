@@ -3,7 +3,13 @@
 @{
     ViewBag.Title = "Details";
 }
-
+<script>
+	$('.front').click(function (e) {
+		e.preventDefault();
+		var table = $(this).closest('table');
+		table.find('.back').show();
+	});
+</script>
 <h2>Details</h2>
 
 <div>
@@ -32,3 +38,20 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<table class="table" style="table-layout: fixed;">
+	<tr>
+		<td>Card Front</td>
+		<td>Card Back</td>
+		<td>Difficulty</td>
+		<td>Options</td>
+	</tr>
+	@foreach (var item in Model.Cards)
+	{
+		<tr>
+			@Html.Partial("_CardListItem", item)
+			<td>
+				@Html.ActionLink("Delete", "Delete", new { id = item.Id })
+			</td>
+		</tr>
+	}
+</table>
