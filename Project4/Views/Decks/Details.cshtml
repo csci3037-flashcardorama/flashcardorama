@@ -43,15 +43,11 @@
 		<td>Card Front</td>
 		<td>Card Back</td>
 		<td>Difficulty</td>
-		<td>Options</td>
 	</tr>
 	@foreach (var item in Model.Cards)
 	{
 		<tr>
 			@Html.Partial("_CardListItem", item)
-			<td>
-				@Html.ActionLink("Delete", "Delete", new { id = item.Id })
-			</td>
 		</tr>
 	}
 </table>
