@@ -2,12 +2,25 @@
 <html>
 <head>
     <meta charset="utf-8" />
+
+    <link rel="icon" href="@Url.Content("~/img/favicon.ico")" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
+<style>
+    /*fix logo UGLY INLINE ATTEMPT*/
+    .navbar-brand img {
+        width: 46px;
+        height: 46px;
+        overflow: hidden;
+        margin-top: -16px;
+        margin-left: -50px;
+        box-shadow: 0px 0px 5px black;
+    }
+</style>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -17,7 +30,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Flash Card O'Rama", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                    <img src="img/tinylogo.png" title="FlashCardORama"/>
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">

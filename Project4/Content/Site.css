@@ -2,6 +2,16 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
+/*fix logo*/
+.navbar-brand img {
+    width: 46px;
+    height: 46px;
+    overflow: hidden;
+    margin-top: -16px;
+    margin-left: -50px;
+    box-shadow: 0px 0px 5px black;
+}
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -52,5 +62,4 @@ body {
 .btn {
     border-color: gold;
 }
-
 
