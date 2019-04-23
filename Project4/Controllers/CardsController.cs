@@ -117,8 +117,8 @@ namespace Project4.Controllers
             Card card = db.Cards.Find(id);
             db.Cards.Remove(card);
             db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+            return RedirectToAction("Edit", "Decks", new { id = card.DeckId });
+		}
 
         protected override void Dispose(bool disposing)
         {
