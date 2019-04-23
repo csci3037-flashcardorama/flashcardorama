@@ -157,6 +157,12 @@ namespace Project4.Controllers
             return RedirectToAction("Index");
         }
 
+		public ActionResult ChooseDeck()
+		{
+			dbEntities dbdc = new dbEntities();
+			return View(dbdc.Decks.ToList());
+		}
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

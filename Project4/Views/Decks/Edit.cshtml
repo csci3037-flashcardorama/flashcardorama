@@ -10,35 +10,69 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Deck</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DeckName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DeckName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DeckName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<div class="form-horizontal">
+	<h4>Deck</h4>
+	<hr />
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	@Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.AspNetUserId, "AspNetUserId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("AspNetUserId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.AspNetUserId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.DeckName, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.DeckName, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.DeckName, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.AspNetUserId, "AspNetUserId", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.DropDownList("AspNetUserId", null, htmlAttributes: new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.AspNetUserId, "", new { @class = "text-danger" })
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="Save" class="btn btn-default" />
+			<input type="button" value="Add Card" class="btn btn-default" onclick="location.href='@Url.Action("Create", "Cards", new { id = Model.Id})'"/>
+		</div>
+	</div>
+	<table class="table">
+		<tr>
+			<td>Card Front</td>
+			<td>Card Back</td>
+			<td>Difficulty</td>
+			<td>Options</td>
+		</tr>
+		@foreach (var item in Model.Cards)
+		{
+			<tr>
+				@Html.Partial("_CardListItem", item)
+			
+				<td>
+					@Html.ActionLink(
+					linkText: "Edit",
+					actionName: "Edit",
+					controllerName: "Cards",
+					routeValues: new {
+						id = item.Id
+					},
+					htmlAttributes: null)
+					@Html.ActionLink(
+					linkText: "Delete",
+					actionName: "Delete",
+					controllerName: "Cards",
+					routeValues: new {
+						id = item.Id
+					},
+					htmlAttributes: null)
+				</td>
+			</tr>
+		}
+	</table>
+
+</div>
 }
 
 <div>
