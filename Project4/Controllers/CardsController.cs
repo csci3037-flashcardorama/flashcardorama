@@ -39,7 +39,7 @@ namespace Project4.Controllers
         // GET: Cards/Create
         public ActionResult Create(string id)
         {		
-			ViewBag.DeckId = new SelectList(db.Decks, "Id", "DeckName",id);
+			ViewBag.DeckId = new SelectList(db.Decks, "Id", "DeckName",id	);
 			return View();
         }
 
