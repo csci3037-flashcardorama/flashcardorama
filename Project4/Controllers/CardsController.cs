@@ -37,10 +37,10 @@ namespace Project4.Controllers
         }
 
         // GET: Cards/Create
-        public ActionResult Create()
-        {
-            ViewBag.DeckId = new SelectList(db.Decks, "Id", "DeckName");
-            return View();
+        public ActionResult Create(string id)
+        {		
+			ViewBag.DeckId = new SelectList(db.Decks, "Id", "DeckName",id);
+			return View();
         }
 
         // POST: Cards/Create
@@ -54,8 +54,8 @@ namespace Project4.Controllers
             {
                 db.Cards.Add(card);
                 db.SaveChanges();
-                return Redirect("Index");
-            }
+				return RedirectToAction("Edit", "Decks", new { id = card.DeckId });
+			}
 
             ViewBag.DeckId = new SelectList(db.Decks, "Id", "DeckName", card.DeckId);
             return View(card);
