@@ -233,6 +233,13 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuizForm.aspx.cs">
+      <DependentUpon>QuizForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuizForm.aspx.designer.cs">
+      <DependentUpon>QuizForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +266,7 @@
     <Content Include="img\largelogo.png" />
     <Content Include="img\smalllogo.png" />
     <Content Include="img\tinylogo.png" />
+    <Content Include="QuizForm.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="dbModel.edmx">
