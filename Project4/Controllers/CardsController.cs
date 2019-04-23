@@ -54,7 +54,7 @@ namespace Project4.Controllers
             {
                 db.Cards.Add(card);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("Index");
             }
 
             ViewBag.DeckId = new SelectList(db.Decks, "Id", "DeckName", card.DeckId);
@@ -88,7 +88,7 @@ namespace Project4.Controllers
             {
                 db.Entry(card).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit","Decks",new { id = card.DeckId });
             }
             ViewBag.DeckId = new SelectList(db.Decks, "Id", "DeckName", card.DeckId);
             return View(card);
